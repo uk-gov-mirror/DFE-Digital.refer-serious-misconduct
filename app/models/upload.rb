@@ -1,5 +1,5 @@
 class Upload < ApplicationRecord
-  after_create_commit :save_filename
+  before_create :set_filename
   after_create_commit :malware_scan
 
   belongs_to :uploadable, polymorphic: true
@@ -21,8 +21,8 @@ class Upload < ApplicationRecord
        },
        prefix: :scan_result
 
-  def save_filename
-    update(filename: file.filename.to_s)
+  def set_filename
+    self.filename = file.filename.to_s
   end
 
   def malware_scan
