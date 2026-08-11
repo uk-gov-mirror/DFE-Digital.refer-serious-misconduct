@@ -12,7 +12,7 @@
 }
 
 .app-card {
-  background-color: govuk-colour("light-grey");
+  background-color: govuk-colour("black", $variant: "tint-95");
   display: block;
   padding: govuk-spacing(2);
   text-decoration: none;
@@ -29,8 +29,8 @@
 }
 
 .app-card--grey {
-  color: app-shade(govuk-colour("dark-grey"), 30);
-  background: app-tint(govuk-colour("dark-grey"), 90);
+  color: app-shade(govuk-colour("black", $variant: "tint-25"), 30);
+  background: app-tint(govuk-colour("black", $variant: "tint-25"), 90);
 }
 
 .app-card--purple {
@@ -39,8 +39,8 @@
 }
 
 .app-card--turquoise {
-  color: app-shade(govuk-colour("turquoise"), 60);
-  background: app-tint(govuk-colour("turquoise"), 70);
+  color: app-shade(govuk-colour("teal", $variant: "primary"), 60);
+  background: app-tint(govuk-colour("teal", $variant: "primary"), 70);
 }
 
 .app-card--light-blue {
@@ -64,8 +64,8 @@
 }
 
 .app-card--pink {
-  color: app-shade(govuk-colour("pink"), 40);
-  background: app-tint(govuk-colour("pink"), 80);
+  color: app-shade(govuk-colour("magenta", $variant: "primary"), 40);
+  background: app-tint(govuk-colour("magenta", $variant: "primary"), 80);
 }
 
 .app-card--green {
