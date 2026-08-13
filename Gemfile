@@ -67,6 +67,8 @@ group :test do
 end
 
 group :production, :test do
-  # Semantic Logger makes logs pretty, also needed for logit integration
-  gem "rails_semantic_logger"
+  # Semantic Logger makes logs pretty, also needed for logit integration.
+  # Held at 5.0.x: 4.x calls ActiveRecord::RuntimeRegistry.sql_runtime, which
+  # Rails 8.1 removed, and 5.1 reads Sidekiq::Config, which needs Sidekiq 7.
+  gem "rails_semantic_logger", "~> 5.0.0"
 end
