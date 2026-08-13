@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.4.4"
 
+# Active Storage adapter for Azure. Rails 8.1 removed its built-in AzureStorage service.
+gem "azure-blob"
+# Not an Active Storage backend: Malware::FetchScanResult reads blob tags through it directly.
 gem "azure-storage-blob"
 gem "bootsnap", require: false
 gem "cssbundling-rails"
