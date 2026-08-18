@@ -1,15 +1,14 @@
 $govuk-global-styles: true;
-$govuk-new-link-styles: true;
 $govuk-assets-path: "/";
 
-@import "govuk-frontend/dist/govuk/all";
+@import "govuk-frontend/dist/govuk/index";
 @import "_task-list";
 @import "_performance-table";
 @import "card";
 @import "_app-govuk-summary-card";
 
 .app-govuk-related-navigation {
-  @include govuk-text-colour;
+  color: govuk-functional-colour(text);
   border-top: 2px solid $govuk-brand-colour;
 
   &__nav-section {

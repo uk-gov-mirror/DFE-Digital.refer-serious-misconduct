@@ -6,7 +6,7 @@ RSpec.describe Upload, type: :model do
   it { is_expected.to belong_to(:uploadable) }
   it { is_expected.to have_one_attached(:file) }
 
-  describe "#save_filename" do
+  describe "#set_filename" do
     subject { upload.filename }
 
     it { is_expected.to eq("upload1.pdf") }

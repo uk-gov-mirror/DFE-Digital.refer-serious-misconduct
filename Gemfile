@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.4.4"
 
+# Active Storage adapter for Azure. Rails 8.1 removed its built-in AzureStorage service.
+gem "azure-blob"
+# Not an Active Storage backend: Malware::FetchScanResult reads blob tags through it directly.
 gem "azure-storage-blob"
 gem "bootsnap", require: false
 gem "cssbundling-rails"
@@ -25,7 +28,7 @@ gem "propshaft"
 gem "puma", "~> 6.4"
 gem "pundit", "~> 2.3"
 gem "rack-attack"
-gem "rails", "~> 7.2.1"
+gem "rails", "~> 8.1.3"
 gem "rotp"
 gem "rubyzip"
 gem "sentry-rails"
@@ -64,6 +67,8 @@ group :test do
 end
 
 group :production, :test do
-  # Semantic Logger makes logs pretty, also needed for logit integration
-  gem "rails_semantic_logger"
+  # Semantic Logger makes logs pretty, also needed for logit integration.
+  # Held at 5.0.x: 4.x calls ActiveRecord::RuntimeRegistry.sql_runtime, which
+  # Rails 8.1 removed, and 5.1 reads Sidekiq::Config, which needs Sidekiq 7.
+  gem "rails_semantic_logger", "~> 5.0.0"
 end

@@ -3,8 +3,8 @@ class EligibilityCheck < ApplicationRecord
 
   validates :reporting_as, presence: true
 
-  enum reporting_as: { employer: "employer", public: "public" }, _prefix: true
-  enum continue_with: { complaint: "complaint", referral: "referral" }, _prefix: true
+  enum :reporting_as, { employer: "employer", public: "public" }, prefix: true
+  enum :continue_with, { complaint: "complaint", referral: "referral" }, prefix: true
 
   scope :complete, -> { where(serious_misconduct: "yes").or(continue_with_referral) }
   scope :group_by_day, -> { group("date_trunc('day', created_at)") }
