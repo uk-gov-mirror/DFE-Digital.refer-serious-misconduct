@@ -175,13 +175,13 @@ To connect to the PTR postgres copy using `psql` via konduit:
 - Install `konduit.sh` locally using the `make` command
 - Run: `bin/konduit.sh -x -n <namespace-of-deployment> -s <name-of-ptr-server> <name-of-deployment> -- psql`
 
-e.g. `bin/konduit.sh -x -n tra-test -s s189t01-ittms-stg-pg-ptr itt-mentor-services-staging -- psql`
+e.g. `bin/konduit.sh -x -n tra-test -s s189t01-rsm-ts-pg-ptr-2026-08-20 refer-serious-misconduct-test -- psql`
 
 To connect to the existing live postgres server for comparison:
 
 - Run: `bin/konduit.sh -x name-of-deployment -- psql`
 
-e.g. `bin/konduit.sh -x itt-mentor-services-staging -- psql`
+e.g. `bin/konduit.sh -x refer-serious-misconduct-test -- psql`
 
 ### Upload restored database to Azure storage
 
