@@ -121,8 +121,8 @@ The steps involved in this are:
 3. [Freeze pipeline](#freeze-pipeline)
 4. [Back up the database (optional)](#back-up-the-database-optional)
 5. [Restore postgres database](#restore-postgres-database)
-6. [Upload restored database to Azure storage](#upload-restored-database-to-azure-storage)
-7. [Validate data](#validate-data)
+6. [Validate data](#validate-data)
+7. [Upload restored database to Azure storage](#upload-restored-database-to-azure-storage)
 8. [Restore data into the live server](#restore-data-into-the-live-server)
 9. [Restart applications](#restart-applications)
 10. [Validate app](#validate-app)
@@ -166,10 +166,6 @@ Run the [Restore database from point in time to new database server workflow](ht
 
 **Important:** You should convert the time to UTC before actually using it. When you record the time, note what timezone you are using. Especially during BST (British Summer Time).
 
-### Upload restored database to Azure storage
-
-Use the [Backup database to Azure storage](https://github.com/DFE-Digital/refer-serious-misconduct/actions/workflows/backup-db.yml) workflow and choose the restored server as input. Use a specific name to identify the backup file later on.
-
 ### Validate data
 
 It may be necessary to connect to the PTR postgres server for troubleshooting, before deciding on a full restore or otherwise. For instance, the PTR restore may have to be rerun with a different date/time.
@@ -186,6 +182,10 @@ To connect to the existing live postgres server for comparison:
 - Run: `bin/konduit.sh -x name-of-deployment -- psql`
 
 e.g. `bin/konduit.sh -x itt-mentor-services-staging -- psql`
+
+### Upload restored database to Azure storage
+
+Use the [Backup database to Azure storage](https://github.com/DFE-Digital/refer-serious-misconduct/actions/workflows/backup-db.yml) workflow and choose the restored server as input. Use a specific name to identify the backup file later on.
 
 ### Restore data into the live server
 
